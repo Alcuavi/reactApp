@@ -27,6 +27,7 @@ class App extends Component {
 
         return (
             <div className="App">
+                <h1>Formulario</h1>
                 <form onSubmit = {this.handleSubmit}>
                     <label style = {estilo}>
                         Nombre:
