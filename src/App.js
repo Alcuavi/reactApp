@@ -18,10 +18,17 @@ class App extends Component {
     }
 
     render() {
+        let isBold = true;
+        const estilo = {
+            color: 'blue',
+            fontWeight: isBold ? "bold" : "italic",
+            fontSize: '19px'
+        };
+
         return (
             <div className="App">
                 <form onSubmit = {this.handleSubmit}>
-                    <label>
+                    <label style = {estilo}>
                         Nombre:
                         <input type="text"
                                value={this.state.name}
