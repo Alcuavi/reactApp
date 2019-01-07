@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+    constructor(props){
+        super(props);
+        this.state={name:'Alberto'};
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(event){
+        this.setState({name: event.target.value});
+    }
+    handleSubmit(event){
+        alert("Un nuevo nombre "+ this.state.name);
+        event.preventDefault();
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <form onSubmit = {this.handleSubmit}>
+                    <label>
+                        Nombre:
+                        <input type="text"
+                               value={this.state.name}
+                               onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Aceptar"></input>
+                </form>
+
+            </div>
+        );
+    }
 }
 
 export default App;
